@@ -1,0 +1,130 @@
+ #Create two folders project1 and project2 locally. Create a repository in github or bitbucket, name it test_project.
+
+  mkdir project1
+
+  mkdir project2
+
+  #repository at bit bucket
+  https://github.com/himanshumishra31/test_project.git
+
+# Switch to project1
+
+  cd project1
+
+  git init # initialize empty repository
+
+  git remote add origin https://github.com/himanshumishra31/test_project.git
+
+# Switch to a new branch - 'staging'.
+
+  git checkout -b staging
+
+  touch test1.txt
+
+  git add test1.txt
+
+  git commit -m "First commit"
+
+  git push origin staging -u
+
+# Move to folder project2 and clone the repo in project2
+
+  cd ../project2
+
+  git clone https://github.com/himanshumishra31/test_project.git
+
+# Make the changes in file and commit to remote repository
+
+  git add test1.txt
+
+  git add -u
+  git push
+
+# Move to project1 and switch to staging branch and change the file and commit.
+
+  cd ../project1
+
+  git checkout staging
+
+  git add -u
+
+  git commit -m "third commit"
+
+  git push origin staging.
+
+  // here we have to first pull the changes as the file is modified by project2 also. So first pull the file and then make the changes and then commit the changes done by you.
+
+# Switch to master branch and merge staging branch into master
+
+  git checkout master.
+
+  git merge staging.
+
+# Create a branch testing.
+
+  git branch testing
+
+# Change the text to 'A is an alphabet' and commit.
+
+  git add -u
+  git commit -m "A change"
+
+# Repeat the above steps 7 times
+
+  git add -u
+  git commit -m "commit no 1"
+
+  // repeat it 7 times
+
+# push the branch to github
+
+  git push origin staging
+
+# Checkout to master.
+
+  git checkout master
+
+# Change file content and commit the change
+
+  git add -u
+  git commit -m "done"
+
+# repeat the steps 7 times
+
+  git add -u
+  git commit -m "done"
+
+# Push the branch to github
+
+  git push origin master.
+
+# Move to project2.
+
+  cd ../project2
+
+# Track testing branch.
+
+  # fetch all changes to remote repository
+  git fetch
+
+  # track a new branch
+
+  git branch --track testing remotes/origin/testing
+
+# Checkout to master.
+
+  git checkout master
+
+# Merge branch testing into master.
+
+  git merge testing
+
+#  Share your views about the difference between master and testing.
+
+  # check differnce between both branches
+    git diff master testing # returns nothing
+
+  Hence, master and testing branches are same.
+
+
+
